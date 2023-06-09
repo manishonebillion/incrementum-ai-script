@@ -19,12 +19,23 @@ question_1.addEventListener('blur', (event) => {
         .then(data => {
             console.log('response', data);
             localStorage.removeItem("question_1");
-            localStorage.setItem("question_1", data);
+            let question_1_data;
             if (data.score !== null) {
-                result_text_1.innerText = data.score
+                result_text_1.innerText = data.score;
+                question_1_data = {
+                    "Metric": data.Metric,
+                    "score": parseInt(data.score),
+                    "suggestion": data.suggestion
+                }
             } else {
-                result_text_1.innerText = 0
+                result_text_1.innerText = 0;
+                question_1_data = {
+                    "Metric": data.Metric,
+                    "score": 0,
+                    "suggestion": data.suggestion
+                }
             }
+            localStorage.setItem("question_1", JSON.stringify(question_1_data));
         })
         .catch(error => {
             console.error('Error:', error);
@@ -52,12 +63,23 @@ question_2.addEventListener('blur', (event) => {
         .then(data => {
             console.log('response', data);
             localStorage.removeItem("question_2");
-            localStorage.setItem("question_2", data);
+            let question_2_data;
             if (data.score !== null) {
-                result_text_2.innerText = data.score
+                result_text_2.innerText = data.score;
+                question_2_data = {
+                    "Metric": data.Metric,
+                    "score": parseInt(data.score),
+                    "suggestion": data.suggestion
+                }
             } else {
-                result_text_2.innerText = 0
+                result_text_2.innerText = 0;
+                question_2_data = {
+                    "Metric": data.Metric,
+                    "score": 0,
+                    "suggestion": data.suggestion
+                }
             }
+            localStorage.setItem("question_2", JSON.stringify(question_2_data));
         })
         .catch(error => {
             console.error('Error:', error);
@@ -84,12 +106,23 @@ question_3.addEventListener('blur', (event) => {
         .then(data => {
             console.log('response', data);
             localStorage.removeItem("question_3");
-            localStorage.setItem("question_3", data);
+            let question_3_data;
             if (data.score !== null) {
-                result_text_3.innerText = data.score
+                result_text_3.innerText = data.score;
+                question_3_data = {
+                    "Metric": data.Metric,
+                    "score": parseInt(data.score),
+                    "suggestion": data.suggestion
+                }
             } else {
-                result_text_3.innerText = 0
+                result_text_3.innerText = 0;
+                question_3_data = {
+                    "Metric": data.Metric,
+                    "score": 0,
+                    "suggestion": data.suggestion
+                }
             }
+            localStorage.setItem("question_3", JSON.stringify(question_3_data));
         })
         .catch(error => {
             console.error('Error:', error);
@@ -117,12 +150,23 @@ question_4.addEventListener('blur', (event) => {
         .then(data => {
             console.log('response', data);
             localStorage.removeItem("question_4");
-            localStorage.setItem("question_4", data);
+            let question_4_data;
             if (data.score !== null) {
-                result_text_4.innerText = data.score
+                result_text_4.innerText = data.score;
+                question_4_data = {
+                    "Metric": data.Metric,
+                    "score": parseInt(data.score),
+                    "suggestion": data.suggestion
+                }
             } else {
-                result_text_4.innerText = 0
+                result_text_4.innerText = 0;
+                question_4_data = {
+                    "Metric": data.Metric,
+                    "score": 0,
+                    "suggestion": data.suggestion
+                }
             }
+            localStorage.setItem("question_4", JSON.stringify(question_4_data));
         })
         .catch(error => {
             console.error('Error:', error);
@@ -150,12 +194,23 @@ question_5.addEventListener('blur', (event) => {
         .then(data => {
             console.log('response', data);
             localStorage.removeItem("question_5");
-            localStorage.setItem("question_5", data);
+            let question_5_data;
             if (data.score !== null) {
-                result_text_5.innerText = data.score
+                result_text_5.innerText = data.score;
+                question_5_data = {
+                    "Metric": data.Metric,
+                    "score": parseInt(data.score),
+                    "suggestion": data.suggestion
+                }
             } else {
-                result_text_5.innerText = 0
+                result_text_5.innerText = 0;
+                question_5_data = {
+                    "Metric": data.Metric,
+                    "score": 0,
+                    "suggestion": data.suggestion
+                }
             }
+            localStorage.setItem("question_5", JSON.stringify(question_5_data));
         })
         .catch(error => {
             console.error('Error:', error);
@@ -182,12 +237,23 @@ question_6.addEventListener('blur', (event) => {
         .then(data => {
             console.log('response', data);
             localStorage.removeItem("question_6");
-            localStorage.setItem("question_6", data);
+            let question_6_data;
             if (data.score !== null) {
-                result_text_6.innerText = data.score
+                result_text_6.innerText = data.score;
+                question_6_data = {
+                    "Metric": data.Metric,
+                    "score": parseInt(data.score),
+                    "suggestion": data.suggestion
+                }
             } else {
-                result_text_6.innerText = 0
+                result_text_6.innerText = 0;
+                question_6_data = {
+                    "Metric": data.Metric,
+                    "score": 0,
+                    "suggestion": data.suggestion
+                }
             }
+            localStorage.setItem("question_6", JSON.stringify(question_6_data));
         })
         .catch(error => {
             console.error('Error:', error);
@@ -214,12 +280,23 @@ question_7.addEventListener('blur', (event) => {
         .then(data => {
             console.log('response', data);
             localStorage.removeItem("question_7");
-            localStorage.setItem("question_7", data);
+            let question_7_data;
             if (data.score !== null) {
-                result_text_7.innerText = data.score
+                result_text_7.innerText = data.score;
+                question_7_data = {
+                    "Metric": data.Metric,
+                    "score": parseInt(data.score),
+                    "suggestion": data.suggestion
+                }
             } else {
-                result_text_7.innerText = 0
+                result_text_7.innerText = 0;
+                question_7_data = {
+                    "Metric": data.Metric,
+                    "score": 0,
+                    "suggestion": data.suggestion
+                }
             }
+            localStorage.setItem("question_7", JSON.stringify(question_7_data));
         })
         .catch(error => {
             console.error('Error:', error);
@@ -246,12 +323,23 @@ question_8.addEventListener('blur', (event) => {
         .then(data => {
             console.log('response', data);
             localStorage.removeItem("question_8");
-            localStorage.setItem("question_8", data);
+            let question_8_data;
             if (data.score !== null) {
-                result_text_8.innerText = data.score
+                result_text_8.innerText = data.score;
+                question_8_data = {
+                    "Metric": data.Metric,
+                    "score": parseInt(data.score),
+                    "suggestion": data.suggestion
+                }
             } else {
-                result_text_8.innerText = 0
+                result_text_8.innerText = 0;
+                question_8_data = {
+                    "Metric": data.Metric,
+                    "score": 0,
+                    "suggestion": data.suggestion
+                }
             }
+            localStorage.setItem("question_8", JSON.stringify(question_8_data));
         })
         .catch(error => {
             console.error('Error:', error);
@@ -274,20 +362,31 @@ question_9.addEventListener('blur', (event) => {
             Answer: event.target.value
         })
     })
-        .then(response => response.json()) // Parse response as JSON
-        .then(data => {
-            console.log('response', data);
-            localStorage.removeItem("question_9");
-            localStorage.setItem("question_9", data);
-            if (data.score !== null) {
-                result_text_9.innerText = data.score
-            } else {
-                result_text_9.innerText = 0
+    .then(response => response.json()) // Parse response as JSON
+    .then(data => {
+        console.log('response', data);
+        localStorage.removeItem("question_9");
+        let question_9_data;
+        if (data.score !== null) {
+            result_text_9.innerText = data.score;
+            question_9_data = {
+                "Metric": data.Metric,
+                "score": parseInt(data.score),
+                "suggestion": data.suggestion
             }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
+        } else {
+            result_text_9.innerText = 0;
+            question_9_data = {
+                "Metric": data.Metric,
+                "score": 0,
+                "suggestion": data.suggestion
+            }
+        }
+        localStorage.setItem("question_9", JSON.stringify(question_9_data));
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
 
 });
 
@@ -296,7 +395,9 @@ const form = document.querySelector('#wf-form-generator');
 const resultWrap = document.querySelector('#statement-component');
 const resultLoader = document.querySelector('#statement-loader');
 const resultText = document.querySelector('#statement-text');
-const suggestion_wrap = document.querySelector('#suggestion_wrap_id');
+const question_avg_score_heading = document.querySelector('#question_avg_score_heading');
+const suggestions_body = document.querySelector('#suggestions_body');
+const offer_wrap_container = document.querySelector('#offer_wrap_container');
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -304,21 +405,64 @@ form.addEventListener('submit', (event) => {
 
     // Show the div that will contain the response and scroll to it
     resultWrap.style.display = "block";
-    // resultLoader.style.display = "flex";
+    resultLoader.style.display = "flex";
     resultWrap.scrollIntoView({behavior: "smooth"});
 
-
-    let question_1 = localStorage.getItem("question_1");
-    let question_2 = localStorage.getItem("question_2");
-    let question_3 = localStorage.getItem("question_3");
-    let question_4 = localStorage.getItem("question_4");
-    let question_5 = localStorage.getItem("question_5");
-    let question_6 = localStorage.getItem("question_6");
-    let question_7 = localStorage.getItem("question_7");
-    let question_8 = localStorage.getItem("question_8");
-    let question_9 = localStorage.getItem("question_9");
+    let question_1 = JSON.parse(localStorage.getItem("question_1"));
+    let question_2 = JSON.parse(localStorage.getItem("question_2"));
+    let question_3 = JSON.parse(localStorage.getItem("question_3"));
+    let question_4 = JSON.parse(localStorage.getItem("question_4"));
+    let question_5 = JSON.parse(localStorage.getItem("question_5"));
+    let question_6 = JSON.parse(localStorage.getItem("question_6"));
+    let question_7 = JSON.parse(localStorage.getItem("question_7"));
+    let question_8 = JSON.parse(localStorage.getItem("question_8"));
+    let question_9 = JSON.parse(localStorage.getItem("question_9"));
 
     console.log('question_1', question_1);
 
-    suggestion_wrap.innerHTML = '<p>Your Avarage score is: 45 / 90 </p>';
+    //calculate avg score
+    let total_score = parseInt(question_1.score) + parseInt(question_2.score) + parseInt(question_3.score) + parseInt(question_4.score) + parseInt(question_5.score) + parseInt(question_6.score) + parseInt(question_7.score) + parseInt(question_8.score) + parseInt(question_9.score);
+    console.log('total_score', total_score);
+    let avg_score = Math.round(total_score / 9);
+    console.log('avg_score', avg_score);
+
+    question_avg_score_heading.innerHTML = '<div>Current Offer Analysis: ' + total_score + ' / 90 </div>';
+    let suggestions_body_html = '<div> - ' + question_1.Metric + ' score: ' + question_1.score + '<br>' + question_1.suggestion + '</div>';
+    suggestions_body_html += '<div> - ' + question_2.Metric + ' score: ' + question_2.score + '<br>' + question_2.suggestion + '</div>';
+    suggestions_body_html += '<div> - ' + question_3.Metric + ' score: ' + question_3.score + '<br>' + question_3.suggestion + '</div>';
+    suggestions_body_html += '<div> - ' + question_4.Metric + ' score: ' + question_4.score + '<br>' + question_4.suggestion + '</div>';
+    suggestions_body_html += '<div> - ' + question_5.Metric + ' score: ' + question_5.score + '<br>' + question_5.suggestion + '</div>';
+    suggestions_body_html += '<div> - ' + question_6.Metric + ' score: ' + question_6.score + '<br>' + question_6.suggestion + '</div>';
+    suggestions_body_html += '<div> - ' + question_7.Metric + ' score: ' + question_7.score + '<br>' + question_7.suggestion + '</div>';
+    suggestions_body_html += '<div> - ' + question_8.Metric + ' score: ' + question_8.score + '<br>' + question_8.suggestion + '</div>';
+    suggestions_body_html += '<div> - ' + question_9.Metric + ' score: ' + question_9.score + '<br>' + question_9.suggestion + '</div>';
+
+    suggestions_body.innerHTML = suggestions_body_html;
+
+    let inputs = '- ' + question_1.Metric + ' score: ' + question_1.score + ' ' + question_1.suggestion;
+    inputs += '- ' + question_2.Metric + ' score: ' + question_2.score + ' ' + question_2.suggestion;
+    inputs += '- ' + question_3.Metric + ' score: ' + question_3.score + ' ' + question_3.suggestion;
+    inputs += '- ' + question_4.Metric + ' score: ' + question_4.score + ' ' + question_4.suggestion;
+    inputs += '- ' + question_5.Metric + ' score: ' + question_5.score + ' ' + question_5.suggestion;
+    inputs += '- ' + question_6.Metric + ' score: ' + question_6.score + ' ' + question_6.suggestion;
+    inputs += '- ' + question_7.Metric + ' score: ' + question_7.score + ' ' + question_7.suggestion;
+    inputs += '- ' + question_8.Metric + ' score: ' + question_8.score + ' ' + question_8.suggestion;
+    inputs += '- ' + question_9.Metric + ' score: ' + question_9.score + ' ' + question_9.suggestion;
+
+    fetch('http://54.67.124.18:5000/api/offer', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            input: inputs,
+        })
+    })
+    .then(response => response.json()) // Parse response as JSON
+    .then(data => {
+        console.log('response', data);
+        offer_wrap_container.innerHTML = data.suggestion;
+        resultLoader.style.display = "none";
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
 })
