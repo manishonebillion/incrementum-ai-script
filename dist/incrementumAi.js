@@ -467,6 +467,8 @@ form.addEventListener('submit', (event) => {
                     suggestion_html += '<div>' + suggestions[index] + '</div>';
                 }
                 offer_wrap_container.innerHTML = suggestion_html;
+            }else{
+                offer_wrap_container.innerHTML = '<div>Response error</div>';
             }
             resultLoader.style.display = "none";
         })
