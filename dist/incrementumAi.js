@@ -362,31 +362,31 @@ question_9.addEventListener('blur', (event) => {
             Answer: event.target.value
         })
     })
-    .then(response => response.json()) // Parse response as JSON
-    .then(data => {
-        console.log('response', data);
-        localStorage.removeItem("question_9");
-        let question_9_data;
-        if (data.score !== null) {
-            result_text_9.innerText = data.score;
-            question_9_data = {
-                "Metric": data.Metric,
-                "score": parseInt(data.score),
-                "suggestion": data.suggestion
+        .then(response => response.json()) // Parse response as JSON
+        .then(data => {
+            console.log('response', data);
+            localStorage.removeItem("question_9");
+            let question_9_data;
+            if (data.score !== null) {
+                result_text_9.innerText = data.score;
+                question_9_data = {
+                    "Metric": data.Metric,
+                    "score": parseInt(data.score),
+                    "suggestion": data.suggestion
+                }
+            } else {
+                result_text_9.innerText = 0;
+                question_9_data = {
+                    "Metric": data.Metric,
+                    "score": 0,
+                    "suggestion": data.suggestion
+                }
             }
-        } else {
-            result_text_9.innerText = 0;
-            question_9_data = {
-                "Metric": data.Metric,
-                "score": 0,
-                "suggestion": data.suggestion
-            }
-        }
-        localStorage.setItem("question_9", JSON.stringify(question_9_data));
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
+            localStorage.setItem("question_9", JSON.stringify(question_9_data));
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
 
 });
 
@@ -406,7 +406,7 @@ form.addEventListener('submit', (event) => {
     // Show the div that will contain the response and scroll to it
     resultWrap.style.display = "block";
     resultLoader.style.display = "flex";
-    resultWrap.scrollIntoView({behavior: "smooth"});
+    resultWrap.scrollIntoView({ behavior: "smooth" });
 
     let question_1 = JSON.parse(localStorage.getItem("question_1"));
     let question_2 = JSON.parse(localStorage.getItem("question_2"));
@@ -456,13 +456,17 @@ form.addEventListener('submit', (event) => {
             input: inputs,
         })
     })
-    .then(response => response.json()) // Parse response as JSON
-    .then(data => {
-        console.log('response', data);
-        offer_wrap_container.innerHTML = data.suggestion;
-        resultLoader.style.display = "none";
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
+        .then(response => response.json()) // Parse response as JSON
+        .then(data => {
+            if (data.suggestion) {
+                let suggestion = data.suggestion;
+                let suggestions = suggestion.split("\n\n");
+                console.log('suggestions', suggestions);
+                offer_wrap_container.innerHTML = data.suggestion;
+            }
+            resultLoader.style.display = "none";
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
 })
