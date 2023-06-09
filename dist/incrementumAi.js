@@ -462,7 +462,11 @@ form.addEventListener('submit', (event) => {
                 let suggestion = data.suggestion;
                 let suggestions = suggestion.split("\n\n");
                 console.log('suggestions', suggestions);
-                offer_wrap_container.innerHTML = data.suggestion;
+                let suggestion_html = '';
+                for (let index = 0; index < suggestions.length; index++) {
+                    suggestion_html += '<div>' + suggestions[index] + '</div>';
+                }
+                offer_wrap_container.innerHTML = suggestion_html;
             }
             resultLoader.style.display = "none";
         })
