@@ -427,15 +427,15 @@ form.addEventListener('submit', (event) => {
     console.log('avg_score', avg_score);
 
     question_avg_score_heading.innerHTML = '<div>Current Offer Analysis: ' + total_score + ' / 90 </div>';
-    let suggestions_body_html = '<div> - ' + question_1.Metric + ' score: ' + question_1.score + '<br>' + question_1.suggestion + '</div>';
-    suggestions_body_html += '<div> - ' + question_2.Metric + ' score: ' + question_2.score + '<br>' + question_2.suggestion + '</div>';
-    suggestions_body_html += '<div> - ' + question_3.Metric + ' score: ' + question_3.score + '<br>' + question_3.suggestion + '</div>';
-    suggestions_body_html += '<div> - ' + question_4.Metric + ' score: ' + question_4.score + '<br>' + question_4.suggestion + '</div>';
-    suggestions_body_html += '<div> - ' + question_5.Metric + ' score: ' + question_5.score + '<br>' + question_5.suggestion + '</div>';
-    suggestions_body_html += '<div> - ' + question_6.Metric + ' score: ' + question_6.score + '<br>' + question_6.suggestion + '</div>';
-    suggestions_body_html += '<div> - ' + question_7.Metric + ' score: ' + question_7.score + '<br>' + question_7.suggestion + '</div>';
-    suggestions_body_html += '<div> - ' + question_8.Metric + ' score: ' + question_8.score + '<br>' + question_8.suggestion + '</div>';
-    suggestions_body_html += '<div> - ' + question_9.Metric + ' score: ' + question_9.score + '<br>' + question_9.suggestion + '</div>';
+    let suggestions_body_html = '<div style="margin-top: 5px"> - ' + question_1.Metric + ' score: ' + question_1.score + '<br>' + question_1.suggestion + '</div>';
+    suggestions_body_html += '<div style="margin-top: 5px"> - ' + question_2.Metric + ' score: ' + question_2.score + '<br>' + question_2.suggestion + '</div>';
+    suggestions_body_html += '<div style="margin-top: 5px"> - ' + question_3.Metric + ' score: ' + question_3.score + '<br>' + question_3.suggestion + '</div>';
+    suggestions_body_html += '<div style="margin-top: 5px"> - ' + question_4.Metric + ' score: ' + question_4.score + '<br>' + question_4.suggestion + '</div>';
+    suggestions_body_html += '<div style="margin-top: 5px"> - ' + question_5.Metric + ' score: ' + question_5.score + '<br>' + question_5.suggestion + '</div>';
+    suggestions_body_html += '<div style="margin-top: 5px"> - ' + question_6.Metric + ' score: ' + question_6.score + '<br>' + question_6.suggestion + '</div>';
+    suggestions_body_html += '<div style="margin-top: 5px"> - ' + question_7.Metric + ' score: ' + question_7.score + '<br>' + question_7.suggestion + '</div>';
+    suggestions_body_html += '<div style="margin-top: 5px"> - ' + question_8.Metric + ' score: ' + question_8.score + '<br>' + question_8.suggestion + '</div>';
+    suggestions_body_html += '<div style="margin-top: 5px"> - ' + question_9.Metric + ' score: ' + question_9.score + '<br>' + question_9.suggestion + '</div>';
 
     suggestions_body.innerHTML = suggestions_body_html;
 
@@ -464,7 +464,7 @@ form.addEventListener('submit', (event) => {
                 console.log('suggestions', suggestions);
                 let suggestion_html = '';
                 for (let index = 0; index < suggestions.length; index++) {
-                    suggestion_html += '<div>' + suggestions[index] + '</div>';
+                    suggestion_html += '<div style="margin-top: 5px">' + suggestions[index] + '</div>';
                 }
                 offer_wrap_container.innerHTML = suggestion_html;
             }else{
