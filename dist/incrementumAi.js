@@ -475,4 +475,14 @@ form.addEventListener('submit', (event) => {
         .catch(error => {
             console.error('Error:', error);
         });
+});
+
+const back_btn = document.querySelector('#back-btn');
+back_btn.addEventListener('click', (event) => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+const generate_new_offer = document.querySelector('#generate_new_offer');
+generate_new_offer.addEventListener('click', (event) => {
+    window.location.reload();
 })
