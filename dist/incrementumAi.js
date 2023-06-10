@@ -464,7 +464,7 @@ form.addEventListener('submit', (event) => {
                 console.log('suggestions', suggestions);
                 let suggestion_html = '';
                 for (let index = 0; index < suggestions.length; index++) {
-                    suggestion_html += '<div style="margin-top: 5px">' + suggestions[index] + '</div>';
+                    suggestion_html += '<div style="margin-top: 10px">' + suggestions[index] + '</div>';
                 }
                 offer_wrap_container.innerHTML = suggestion_html;
             }else{
