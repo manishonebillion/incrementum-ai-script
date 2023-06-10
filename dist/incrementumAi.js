@@ -427,7 +427,7 @@ form.addEventListener('submit', (event) => {
     console.log('avg_score', avg_score);
 
     question_avg_score_heading.innerHTML = '<div>Current Offer Analysis: ' + total_score + ' / 90 </div>';
-    let suggestions_body_html = '<div style="margin-top: 5px"> - ' + question_1.Metric + ' score: ' + question_1.score + '<br>' + question_1.suggestion + '</div>';
+    let suggestions_body_html = '<div style="margin-top: 10px"> - ' + question_1.Metric + ' score: ' + question_1.score + '<br>' + question_1.suggestion + '</div>';
     suggestions_body_html += '<div style="margin-top: 5px"> - ' + question_2.Metric + ' score: ' + question_2.score + '<br>' + question_2.suggestion + '</div>';
     suggestions_body_html += '<div style="margin-top: 5px"> - ' + question_3.Metric + ' score: ' + question_3.score + '<br>' + question_3.suggestion + '</div>';
     suggestions_body_html += '<div style="margin-top: 5px"> - ' + question_4.Metric + ' score: ' + question_4.score + '<br>' + question_4.suggestion + '</div>';
