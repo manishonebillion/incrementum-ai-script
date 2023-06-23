@@ -39,6 +39,9 @@ question_1.addEventListener('blur', (event) => {
             }
             localStorage.setItem("question_1", JSON.stringify(question_1_data));
         })
+        .finally(() => {
+            q_reason_block_1.style.display = "none";
+        })
         .catch(error => {
             console.error('Error:', error);
         });
