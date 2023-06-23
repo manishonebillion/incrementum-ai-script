@@ -2,6 +2,7 @@
 // Select the form element and the loader elements 
 const question_1 = document.querySelector('#question_1');
 const result_text_1 = document.querySelector('#result_text_1');
+const q_reason_block_1 = document.querySelector('#q_reason_block_1');
 
 question_1.addEventListener('blur', (event) => {
 
@@ -22,6 +23,7 @@ question_1.addEventListener('blur', (event) => {
             let question_1_data;
             if (data.score !== null) {
                 result_text_1.innerText = data.score;
+                q_reason_block_1.innerText = 'Reason: ' + data.Reason ? data.Reason : '';
                 question_1_data = {
                     "Metric": data.Metric,
                     "score": parseInt(data.score),
