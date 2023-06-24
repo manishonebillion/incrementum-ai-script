@@ -11,7 +11,7 @@ question_1.addEventListener('blur', (event) => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-            Metric: "Targeted Niche (TN)",
+            Metric: "Targeted Niche(TN)",
             Question: "Who is your target market?",
             Answer: event.target.value
         })
