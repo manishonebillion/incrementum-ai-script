@@ -45,6 +45,7 @@ question_1.addEventListener('blur', (event) => {
             q_reason_block_1.style.display = "block";
         })
         .catch((error) => {
+            // Code executed when an error occurs in the promise chain
             console.error('Error:', error);
         });
 
@@ -474,7 +475,7 @@ form.addEventListener('submit', (event) => {
                     suggestion_html += '<div style="margin-top: 10px">' + suggestions[index] + '</div>';
                 }
                 offer_wrap_container.innerHTML = suggestion_html;
-            }else{
+            } else {
                 offer_wrap_container.innerHTML = '<div>Response error</div>';
             }
             resultLoader.style.display = "none";
