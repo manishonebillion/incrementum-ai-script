@@ -21,28 +21,30 @@ question_1.addEventListener('blur', (event) => {
             console.log('response', data);
             localStorage.removeItem("question_1");
             let question_1_data;
-            if (data.score !== null) {
-                result_text_1.innerText = data.score;
+            if (data.Score !== null) {
+                result_text_1.innerText = data.Score;
                 q_reason_block_1.innerText = 'Reason: ' + data.Reason ? data.Reason : '';
                 question_1_data = {
                     "Metric": data.Metric,
                     "score": parseInt(data.Score),
-                    "suggestion": data.suggestion
+                    "suggestion": data.Suggestions,
+                    "Reason": data.Reason,
                 }
             } else {
                 result_text_1.innerText = 0;
                 question_1_data = {
                     "Metric": data.Metric,
                     "score": 0,
-                    "suggestion": data.suggestion
+                    "suggestion": data.Suggestions,
+                    "Reason": data.Reason
                 }
             }
             localStorage.setItem("question_1", JSON.stringify(question_1_data));
         })
         .finally(() => {
-            q_reason_block_1.style.display = "none";
+            q_reason_block_1.style.display = "block";
         })
-        .catch(error => {
+        .catch((error) => {
             console.error('Error:', error);
         });
 
