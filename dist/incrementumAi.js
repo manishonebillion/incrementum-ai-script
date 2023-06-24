@@ -465,7 +465,8 @@ question_9.addEventListener('blur', (event) => {
 
 const form = document.querySelector('#wf-form-generator');
 const resultWrap = document.querySelector('#statement-component');
-const resultLoader = document.querySelector('#statement-loader');
+const resultLoader_1 = document.querySelector('#statement-loader-1');
+const resultLoader_2 = document.querySelector('#statement-loader-2');
 const resultText = document.querySelector('#statement-text');
 const question_avg_score_heading = document.querySelector('#question_avg_score_heading');
 const suggestions_body = document.querySelector('#suggestions_body');
@@ -476,76 +477,9 @@ form.addEventListener('submit', (event) => {
 
     // Show the div that will contain the response and scroll to it
     resultWrap.style.display = "block";
-    resultLoader.style.display = "flex";
+    resultLoader_1.style.display = "flex";
+    resultLoader_2.style.display = "flex";
     resultWrap.scrollIntoView({ behavior: "smooth" });
-
-    // let question_1 = JSON.parse(localStorage.getItem("question_1"));
-    // let question_2 = JSON.parse(localStorage.getItem("question_2"));
-    // let question_3 = JSON.parse(localStorage.getItem("question_3"));
-    // let question_4 = JSON.parse(localStorage.getItem("question_4"));
-    // let question_5 = JSON.parse(localStorage.getItem("question_5"));
-    // let question_6 = JSON.parse(localStorage.getItem("question_6"));
-    // let question_7 = JSON.parse(localStorage.getItem("question_7"));
-    // let question_8 = JSON.parse(localStorage.getItem("question_8"));
-    // let question_9 = JSON.parse(localStorage.getItem("question_9"));
-
-    // console.log('question_1', question_1);
-
-    // //calculate avg score
-    // let total_score = parseInt(question_1.score) + parseInt(question_2.score) + parseInt(question_3.score) + parseInt(question_4.score) + parseInt(question_5.score) + parseInt(question_6.score) + parseInt(question_7.score) + parseInt(question_8.score) + parseInt(question_9.score);
-    // console.log('total_score', total_score);
-    // let avg_score = Math.round(total_score / 9);
-    // console.log('avg_score', avg_score);
-
-    // question_avg_score_heading.innerHTML = '<div>Current Offer Analysis: ' + total_score + ' / 90 </div>';
-    // let suggestions_body_html = '<div style="margin-top: 10px"> - ' + question_1.Metric + ' score: ' + question_1.score + '<br>' + question_1.suggestion + '</div>';
-    // suggestions_body_html += '<div style="margin-top: 5px"> - ' + question_2.Metric + ' score: ' + question_2.score + '<br>' + question_2.suggestion + '</div>';
-    // suggestions_body_html += '<div style="margin-top: 5px"> - ' + question_3.Metric + ' score: ' + question_3.score + '<br>' + question_3.suggestion + '</div>';
-    // suggestions_body_html += '<div style="margin-top: 5px"> - ' + question_4.Metric + ' score: ' + question_4.score + '<br>' + question_4.suggestion + '</div>';
-    // suggestions_body_html += '<div style="margin-top: 5px"> - ' + question_5.Metric + ' score: ' + question_5.score + '<br>' + question_5.suggestion + '</div>';
-    // suggestions_body_html += '<div style="margin-top: 5px"> - ' + question_6.Metric + ' score: ' + question_6.score + '<br>' + question_6.suggestion + '</div>';
-    // suggestions_body_html += '<div style="margin-top: 5px"> - ' + question_7.Metric + ' score: ' + question_7.score + '<br>' + question_7.suggestion + '</div>';
-    // suggestions_body_html += '<div style="margin-top: 5px"> - ' + question_8.Metric + ' score: ' + question_8.score + '<br>' + question_8.suggestion + '</div>';
-    // suggestions_body_html += '<div style="margin-top: 5px"> - ' + question_9.Metric + ' score: ' + question_9.score + '<br>' + question_9.suggestion + '</div>';
-
-    // suggestions_body.innerHTML = suggestions_body_html;
-
-    // let inputs = '- ' + question_1.Metric + ' score: ' + question_1.score + ' ' + question_1.suggestion;
-    // inputs += '- ' + question_2.Metric + ' score: ' + question_2.score + ' ' + question_2.suggestion;
-    // inputs += '- ' + question_3.Metric + ' score: ' + question_3.score + ' ' + question_3.suggestion;
-    // inputs += '- ' + question_4.Metric + ' score: ' + question_4.score + ' ' + question_4.suggestion;
-    // inputs += '- ' + question_5.Metric + ' score: ' + question_5.score + ' ' + question_5.suggestion;
-    // inputs += '- ' + question_6.Metric + ' score: ' + question_6.score + ' ' + question_6.suggestion;
-    // inputs += '- ' + question_7.Metric + ' score: ' + question_7.score + ' ' + question_7.suggestion;
-    // inputs += '- ' + question_8.Metric + ' score: ' + question_8.score + ' ' + question_8.suggestion;
-    // inputs += '- ' + question_9.Metric + ' score: ' + question_9.score + ' ' + question_9.suggestion;
-
-    // fetch('http://54.67.124.18:5000/api/offer', {
-    //     method: 'POST',
-    //     headers: { 'Content-Type': 'application/json' },
-    //     body: JSON.stringify({
-    //         input: inputs,
-    //     })
-    // })
-    // .then(response => response.json()) // Parse response as JSON
-    // .then(data => {
-    //     if (data.suggestion) {
-    //         let suggestion = data.suggestion;
-    //         let suggestions = suggestion.split("\n\n");
-    //         console.log('suggestions', suggestions);
-    //         let suggestion_html = '';
-    //         for (let index = 0; index < suggestions.length; index++) {
-    //             suggestion_html += '<div style="margin-top: 10px">' + suggestions[index] + '</div>';
-    //         }
-    //         offer_wrap_container.innerHTML = suggestion_html;
-    //     } else {
-    //         offer_wrap_container.innerHTML = '<div>Response error</div>';
-    //     }
-    //     resultLoader.style.display = "none";
-    // })
-    // .catch(error => {
-    //     console.error('Error:', error);
-    // });
 
     fetch('http://52.8.169.139:5000/api/ask', {
         method: 'POST',
@@ -578,6 +512,7 @@ form.addEventListener('submit', (event) => {
         console.error('Error:', error);
     })
     .finally(() => {
+        resultLoader_1.style.display = "none";
         fetchRewrittenOffer();
     });
 });
@@ -614,7 +549,7 @@ const fetchRewrittenOffer = () => {
         console.error('Error:', error);
     })
     .finally(() => {
-        resultLoader.style.display = "none";
+        resultLoader_2.style.display = "none";
     });
 }
 
