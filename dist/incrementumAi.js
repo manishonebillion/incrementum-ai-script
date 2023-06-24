@@ -573,12 +573,47 @@ form.addEventListener('submit', (event) => {
         } else {
             offer_wrap_container.innerHTML = '<div>Response error</div>';
         }
-        resultLoader.style.display = "none";
     })
     .catch(error => {
         console.error('Error:', error);
     });
 });
+
+const fetchRewrittenOffer = () => {
+
+    fetch('http://52.8.169.139:5000/api/ask', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            Metric: "",
+            Question: "REWRITTEN OFFER",
+            Answer: ""
+        })
+    })
+    .then(response => response.json()) // Parse response as JSON
+    .then(data => {
+        const offer_a = data["OFFER A"]; 
+        const offer_b = data["OFFER B"]; 
+        const offer_c = data["OFFER C"]; 
+        const score_a = data["SCORE A"]; 
+        const score_b = data["SCORE B"]; 
+        const score_c = data["SCORE C"];
+        
+        if (offer_a && offer_b && offer_c) {
+            offer_html = '';
+            offer_html += '<div style="margin-top: 10px"> SCORE A: ' + score_a + ' <br> OFFER A: ' + offer_a + '</div>';
+            offer_html += '<div style="margin-top: 10px"> SCORE B: ' + score_b + ' <br> OFFER B: ' + offer_b + '</div>';
+            offer_html += '<div style="margin-top: 10px"> SCORE C: ' + score_c + ' <br> OFFER C: ' + offer_c + '</div>';
+            offer_wrap_container.innerHTML = offer_html;
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    })
+    .finally(() => {
+        resultLoader.style.display = "none";
+    });
+}
 
 const back_btn = document.querySelector('#back-btn');
 back_btn.addEventListener('click', (event) => {
