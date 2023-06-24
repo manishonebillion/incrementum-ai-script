@@ -41,12 +41,12 @@ question_1.addEventListener('blur', (event) => {
             }
             localStorage.setItem("question_1", JSON.stringify(question_1_data));
         })
-        .finally(() => {
-            q_reason_block_1.style.display = "block";
-        })
         .catch((error) => {
             // Code executed when an error occurs in the promise chain
             console.error('Error:', error);
+        })
+        .finally(() => {
+            q_reason_block_1.style.display = 'block';
         });
 
 });
