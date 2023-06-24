@@ -7,12 +7,12 @@ const q_reason_block_1 = document.querySelector('#q_reason_block_1');
 question_1.addEventListener('blur', (event) => {
 
     // Make an API call to our Make cenario
-    fetch('http://54.67.124.18:5000/api/score', {
+    fetch('http://52.8.169.139:5000/api/ask', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
             Metric: "Targeted Niche (TN)",
-            input: "Who is your target market?",
+            Question: "Who is your target market?",
             Answer: event.target.value
         })
     })
@@ -26,7 +26,7 @@ question_1.addEventListener('blur', (event) => {
                 q_reason_block_1.innerText = 'Reason: ' + data.Reason ? data.Reason : '';
                 question_1_data = {
                     "Metric": data.Metric,
-                    "score": parseInt(data.score),
+                    "score": parseInt(data.Score),
                     "suggestion": data.suggestion
                 }
             } else {
