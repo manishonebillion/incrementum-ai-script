@@ -16,385 +16,449 @@ question_1.addEventListener('blur', (event) => {
             Answer: event.target.value
         })
     })
-        .then(response => response.json()) // Parse response as JSON
-        .then(data => {
-            console.log('response', data);
-            localStorage.removeItem("question_1");
-            let question_1_data;
-            if (data.Score !== null) {
-                result_text_1.innerText = data.Score;
-                q_reason_block_1.innerText = "Reason: " + (data.Reason ? data.Reason : '');
-                question_1_data = {
-                    "Metric": data.Metric,
-                    "score": parseInt(data.Score),
-                    "suggestion": data.Suggestions,
-                    "Reason": data.Reason,
-                }
-            } else {
-                result_text_1.innerText = 0;
-                question_1_data = {
-                    "Metric": data.Metric,
-                    "score": 0,
-                    "suggestion": data.Suggestions,
-                    "Reason": data.Reason
-                }
+    .then(response => response.json()) // Parse response as JSON
+    .then(data => {
+        console.log('response', data);
+        localStorage.removeItem("question_1");
+        let question_1_data;
+        if (data.Score !== null) {
+            result_text_1.innerText = data.Score;
+            q_reason_block_1.innerText = "Reason: " + (data.Reason ? data.Reason : '');
+            question_1_data = {
+                "Metric": data.Metric,
+                "score": parseInt(data.Score),
+                "suggestion": data.Suggestions,
+                "Reason": data.Reason,
             }
-            localStorage.setItem("question_1", JSON.stringify(question_1_data));
-        })
-        .catch((error) => {
-            // Code executed when an error occurs in the promise chain
-            console.error('Error:', error);
-        })
-        .finally(() => {
-            q_reason_block_1.style.display = 'block';
-        });
+        } else {
+            result_text_1.innerText = 0;
+            question_1_data = {
+                "Metric": data.Metric,
+                "score": 0,
+                "suggestion": data.Suggestions,
+                "Reason": data.Reason
+            }
+        }
+        localStorage.setItem("question_1", JSON.stringify(question_1_data));
+    })
+    .catch((error) => {
+        // Code executed when an error occurs in the promise chain
+        console.error('Error:', error);
+    })
+    .finally(() => {
+        q_reason_block_1.style.display = 'block';
+    });
 
 });
 
 
 const question_2 = document.querySelector('#question_2');
 const result_text_2 = document.querySelector('#result_text_2');
+const q_reason_block_2 = document.querySelector('#q_reason_block_2');
 
 question_2.addEventListener('blur', (event) => {
 
     // Make an API call to our Make cenario
-    fetch('http://54.67.124.18:5000/api/score', {
+    fetch('http://52.8.169.139:5000/api/ask', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-            Metric: "Desirable Outcome (DO)",
-            input: "What is their desired outcome?",
+            Metric: "Desirable Outcome(DO)",
+            Question: "What is their desired outcome?",
             Answer: event.target.value
         })
     })
-        .then(response => response.json()) // Parse response as JSON
-        .then(data => {
-            console.log('response', data);
-            localStorage.removeItem("question_2");
-            let question_2_data;
-            if (data.score !== null) {
-                result_text_2.innerText = data.score;
-                question_2_data = {
-                    "Metric": data.Metric,
-                    "score": parseInt(data.score),
-                    "suggestion": data.suggestion
-                }
-            } else {
-                result_text_2.innerText = 0;
-                question_2_data = {
-                    "Metric": data.Metric,
-                    "score": 0,
-                    "suggestion": data.suggestion
-                }
+    .then(response => response.json()) // Parse response as JSON
+    .then(data => {
+        console.log('response', data);
+        localStorage.removeItem("question_2");
+        let question_2_data;
+        if (data.Score !== null) {
+            result_text_2.innerText = data.Score;
+            q_reason_block_2.innerText = "Reason: " + (data.Reason ? data.Reason : '');
+            question_2_data = {
+                "Metric": data.Metric,
+                "score": parseInt(data.Score),
+                "suggestion": data.Suggestions,
+                "Reason": data.Reason,
             }
-            localStorage.setItem("question_2", JSON.stringify(question_2_data));
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
+        } else {
+            result_text_2.innerText = 0;
+            question_2_data = {
+                "Metric": data.Metric,
+                "score": 0,
+                "suggestion": data.Suggestions,
+                "Reason": data.Reason
+            }
+        }
+        localStorage.setItem("question_2", JSON.stringify(question_2_data));
+    })
+    .catch((error) => {
+        // Code executed when an error occurs in the promise chain
+        console.error('Error:', error);
+    })
+    .finally(() => {
+        q_reason_block_2.style.display = 'block';
+    });
 
 });
 
 const question_3 = document.querySelector('#question_3');
 const result_text_3 = document.querySelector('#result_text_3');
+const q_reason_block_3 = document.querySelector('#q_reason_block_3');
 
 question_3.addEventListener('blur', (event) => {
 
     // Make an API call to our Make cenario
-    fetch('http://54.67.124.18:5000/api/score', {
+    fetch('http://52.8.169.139:5000/api/ask', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-            Metric: "One-of-a-Kind Positioning (OP)",
-            input: "Why are you uniquely qualified to achieve this desired outcome?",
+            Metric: "One-of-a-Kind Positioning(OP)",
+            Question: "Why are you uniquely qualified to achieve this desired outcome?",
             Answer: event.target.value
         })
     })
-        .then(response => response.json()) // Parse response as JSON
-        .then(data => {
-            console.log('response', data);
-            localStorage.removeItem("question_3");
-            let question_3_data;
-            if (data.score !== null) {
-                result_text_3.innerText = data.score;
-                question_3_data = {
-                    "Metric": data.Metric,
-                    "score": parseInt(data.score),
-                    "suggestion": data.suggestion
-                }
-            } else {
-                result_text_3.innerText = 0;
-                question_3_data = {
-                    "Metric": data.Metric,
-                    "score": 0,
-                    "suggestion": data.suggestion
-                }
+    .then(response => response.json()) // Parse response as JSON
+    .then(data => {
+        console.log('response', data);
+        localStorage.removeItem("question_3");
+        let question_3_data;
+        if (data.Score !== null) {
+            result_text_3.innerText = data.Score;
+            q_reason_block_3.innerText = "Reason: " + (data.Reason ? data.Reason : '');
+            question_3_data = {
+                "Metric": data.Metric,
+                "score": parseInt(data.Score),
+                "suggestion": data.Suggestions,
+                "Reason": data.Reason,
             }
-            localStorage.setItem("question_3", JSON.stringify(question_3_data));
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
+        } else {
+            result_text_3.innerText = 0;
+            question_3_data = {
+                "Metric": data.Metric,
+                "score": 0,
+                "suggestion": data.Suggestions,
+                "Reason": data.Reason
+            }
+        }
+        localStorage.setItem("question_3", JSON.stringify(question_3_data));
+    })
+    .catch((error) => {
+        // Code executed when an error occurs in the promise chain
+        console.error('Error:', error);
+    })
+    .finally(() => {
+        q_reason_block_3.style.display = 'block';
+    });
 
 });
 
 
 const question_4 = document.querySelector('#question_4');
 const result_text_4 = document.querySelector('#result_text_4');
+const q_reason_block_4 = document.querySelector('#q_reason_block_4');
 
 question_4.addEventListener('blur', (event) => {
 
     // Make an API call to our Make cenario
-    fetch('http://54.67.124.18:5000/api/score', {
+    fetch('http://52.8.169.139:5000/api/ask', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-            Metric: "Effortless Implementation (EI)",
-            input: "How much effort is required for customers to achieve this outcome?",
+            Metric: "Effortless Implementation(EI)",
+            Question: "How much effort is required for customers to achieve this outcome?",
             Answer: event.target.value
         })
     })
-        .then(response => response.json()) // Parse response as JSON
-        .then(data => {
-            console.log('response', data);
-            localStorage.removeItem("question_4");
-            let question_4_data;
-            if (data.score !== null) {
-                result_text_4.innerText = data.score;
-                question_4_data = {
-                    "Metric": data.Metric,
-                    "score": parseInt(data.score),
-                    "suggestion": data.suggestion
-                }
-            } else {
-                result_text_4.innerText = 0;
-                question_4_data = {
-                    "Metric": data.Metric,
-                    "score": 0,
-                    "suggestion": data.suggestion
-                }
+    .then(response => response.json()) // Parse response as JSON
+    .then(data => {
+        console.log('response', data);
+        localStorage.removeItem("question_4");
+        let question_4_data;
+        if (data.Score !== null) {
+            result_text_4.innerText = data.Score;
+            q_reason_block_4.innerText = "Reason: " + (data.Reason ? data.Reason : '');
+            question_4_data = {
+                "Metric": data.Metric,
+                "score": parseInt(data.Score),
+                "suggestion": data.Suggestions,
+                "Reason": data.Reason,
             }
-            localStorage.setItem("question_4", JSON.stringify(question_4_data));
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
+        } else {
+            result_text_4.innerText = 0;
+            question_4_data = {
+                "Metric": data.Metric,
+                "score": 0,
+                "suggestion": data.Suggestions,
+                "Reason": data.Reason
+            }
+        }
+        localStorage.setItem("question_4", JSON.stringify(question_4_data));
+    })
+    .catch((error) => {
+        // Code executed when an error occurs in the promise chain
+        console.error('Error:', error);
+    })
+    .finally(() => {
+        q_reason_block_4.style.display = 'block';
+    });
 
 });
 
 
 const question_5 = document.querySelector('#question_5');
 const result_text_5 = document.querySelector('#result_text_5');
+const q_reason_block_5 = document.querySelector('#q_reason_block_5');
 
 question_5.addEventListener('blur', (event) => {
 
     // Make an API call to our Make cenario
-    fetch('http://54.67.124.18:5000/api/score', {
+    fetch('http://52.8.169.139:5000/api/ask', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-            Metric: "High Probability (HP)",
-            input: "What percentage of your customers achieve this desired outcome during your work together?",
+            Metric: "High Probability(HP)",
+            Question: "What percentage of your customers achieve this desired outcome during your work together?",
             Answer: event.target.value
         })
     })
-        .then(response => response.json()) // Parse response as JSON
-        .then(data => {
-            console.log('response', data);
-            localStorage.removeItem("question_5");
-            let question_5_data;
-            if (data.score !== null) {
-                result_text_5.innerText = data.score;
-                question_5_data = {
-                    "Metric": data.Metric,
-                    "score": parseInt(data.score),
-                    "suggestion": data.suggestion
-                }
-            } else {
-                result_text_5.innerText = 0;
-                question_5_data = {
-                    "Metric": data.Metric,
-                    "score": 0,
-                    "suggestion": data.suggestion
-                }
+    .then(response => response.json()) // Parse response as JSON
+    .then(data => {
+        console.log('response', data);
+        localStorage.removeItem("question_5");
+        let question_5_data;
+        if (data.Score !== null) {
+            result_text_5.innerText = data.Score;
+            q_reason_block_5.innerText = "Reason: " + (data.Reason ? data.Reason : '');
+            question_5_data = {
+                "Metric": data.Metric,
+                "score": parseInt(data.Score),
+                "suggestion": data.Suggestions,
+                "Reason": data.Reason,
             }
-            localStorage.setItem("question_5", JSON.stringify(question_5_data));
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
+        } else {
+            result_text_5.innerText = 0;
+            question_5_data = {
+                "Metric": data.Metric,
+                "score": 0,
+                "suggestion": data.Suggestions,
+                "Reason": data.Reason
+            }
+        }
+        localStorage.setItem("question_5", JSON.stringify(question_5_data));
+    })
+    .catch((error) => {
+        // Code executed when an error occurs in the promise chain
+        console.error('Error:', error);
+    })
+    .finally(() => {
+        q_reason_block_5.style.display = 'block';
+    });
 
 });
 
 const question_6 = document.querySelector('#question_6');
 const result_text_6 = document.querySelector('#result_text_6');
+const q_reason_block_6 = document.querySelector('#q_reason_block_6');
 
 question_6.addEventListener('blur', (event) => {
 
     // Make an API call to our Make cenario
-    fetch('http://54.67.124.18:5000/api/score', {
+    fetch('http://52.8.169.139:5000/api/ask', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-            Metric: "Rapid Results (RR)",
-            input: "How long does it take for customers to achieve the desired outcome? (Rating from 0 to 10)",
+            Metric: "Rapid Results(RR)",
+            Question: "How long does it take for customers to achieve the desired outcome? (Rating from 0 to 10)",
             Answer: event.target.value
         })
     })
-        .then(response => response.json()) // Parse response as JSON
-        .then(data => {
-            console.log('response', data);
-            localStorage.removeItem("question_6");
-            let question_6_data;
-            if (data.score !== null) {
-                result_text_6.innerText = data.score;
-                question_6_data = {
-                    "Metric": data.Metric,
-                    "score": parseInt(data.score),
-                    "suggestion": data.suggestion
-                }
-            } else {
-                result_text_6.innerText = 0;
-                question_6_data = {
-                    "Metric": data.Metric,
-                    "score": 0,
-                    "suggestion": data.suggestion
-                }
+    .then(response => response.json()) // Parse response as JSON
+    .then(data => {
+        console.log('response', data);
+        localStorage.removeItem("question_6");
+        let question_6_data;
+        if (data.Score !== null) {
+            result_text_6.innerText = data.Score;
+            q_reason_block_6.innerText = "Reason: " + (data.Reason ? data.Reason : '');
+            question_6_data = {
+                "Metric": data.Metric,
+                "score": parseInt(data.Score),
+                "suggestion": data.Suggestions,
+                "Reason": data.Reason,
             }
-            localStorage.setItem("question_6", JSON.stringify(question_6_data));
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
+        } else {
+            result_text_6.innerText = 0;
+            question_6_data = {
+                "Metric": data.Metric,
+                "score": 0,
+                "suggestion": data.Suggestions,
+                "Reason": data.Reason
+            }
+        }
+        localStorage.setItem("question_6", JSON.stringify(question_6_data));
+    })
+    .catch((error) => {
+        // Code executed when an error occurs in the promise chain
+        console.error('Error:', error);
+    })
+    .finally(() => {
+        q_reason_block_6.style.display = 'block';
+    });
 
 });
 
 const question_7 = document.querySelector('#question_7');
 const result_text_7 = document.querySelector('#result_text_7');
+const q_reason_block_7 = document.querySelector('#q_reason_block_7');
 
 question_7.addEventListener('blur', (event) => {
 
     // Make an API call to our Make cenario
-    fetch('http://54.67.124.18:5000/api/score', {
+    fetch('http://52.8.169.139:5000/api/ask', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-            Metric: "Expiring Opportunity (EO)",
-            input: "Is your offer available for a limited time or to a limited number of people? (Yes/No)",
+            Metric: "Expiring Opportunity(EO)",
+            Question: "Is your offer available for a limited time or to a limited number of people? (Yes/No)",
             Answer: event.target.value
         })
     })
-        .then(response => response.json()) // Parse response as JSON
-        .then(data => {
-            console.log('response', data);
-            localStorage.removeItem("question_7");
-            let question_7_data;
-            if (data.score !== null) {
-                result_text_7.innerText = data.score;
-                question_7_data = {
-                    "Metric": data.Metric,
-                    "score": parseInt(data.score),
-                    "suggestion": data.suggestion
-                }
-            } else {
-                result_text_7.innerText = 0;
-                question_7_data = {
-                    "Metric": data.Metric,
-                    "score": 0,
-                    "suggestion": data.suggestion
-                }
+    .then(response => response.json()) // Parse response as JSON
+    .then(data => {
+        console.log('response', data);
+        localStorage.removeItem("question_7");
+        let question_7_data;
+        if (data.Score !== null) {
+            result_text_7.innerText = data.Score;
+            q_reason_block_7.innerText = "Reason: " + (data.Reason ? data.Reason : '');
+            question_7_data = {
+                "Metric": data.Metric,
+                "score": parseInt(data.Score),
+                "suggestion": data.Suggestions,
+                "Reason": data.Reason,
             }
-            localStorage.setItem("question_7", JSON.stringify(question_7_data));
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
+        } else {
+            result_text_7.innerText = 0;
+            question_7_data = {
+                "Metric": data.Metric,
+                "score": 0,
+                "suggestion": data.Suggestions,
+                "Reason": data.Reason
+            }
+        }
+        localStorage.setItem("question_7", JSON.stringify(question_7_data));
+    })
+    .catch((error) => {
+        // Code executed when an error occurs in the promise chain
+        console.error('Error:', error);
+    })
+    .finally(() => {
+        q_reason_block_7.style.display = 'block';
+    });
 
 });
 
 const question_8 = document.querySelector('#question_8');
 const result_text_8 = document.querySelector('#result_text_8');
+const q_reason_block_8 = document.querySelector('#q_reason_block_8');
 
 question_8.addEventListener('blur', (event) => {
 
     // Make an API call to our Make cenario
-    fetch('http://54.67.124.18:5000/api/score', {
+    fetch('http://52.8.169.139:5000/api/ask', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-            Metric: "Premium Price (PP)",
-            input: "What is the price for your offer? (Enter number in USD)",
+            Metric: "Premium Price(PP)",
+            Question: "What is the price for your offer? (Enter number in USD)",
             Answer: event.target.value
         })
     })
-        .then(response => response.json()) // Parse response as JSON
-        .then(data => {
-            console.log('response', data);
-            localStorage.removeItem("question_8");
-            let question_8_data;
-            if (data.score !== null) {
-                result_text_8.innerText = data.score;
-                question_8_data = {
-                    "Metric": data.Metric,
-                    "score": parseInt(data.score),
-                    "suggestion": data.suggestion
-                }
-            } else {
-                result_text_8.innerText = 0;
-                question_8_data = {
-                    "Metric": data.Metric,
-                    "score": 0,
-                    "suggestion": data.suggestion
-                }
+    .then(response => response.json()) // Parse response as JSON
+    .then(data => {
+        console.log('response', data);
+        localStorage.removeItem("question_8");
+        let question_8_data;
+        if (data.Score !== null) {
+            result_text_8.innerText = data.Score;
+            q_reason_block_8.innerText = "Reason: " + (data.Reason ? data.Reason : '');
+            question_8_data = {
+                "Metric": data.Metric,
+                "score": parseInt(data.Score),
+                "suggestion": data.Suggestions,
+                "Reason": data.Reason,
             }
-            localStorage.setItem("question_8", JSON.stringify(question_8_data));
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
+        } else {
+            result_text_8.innerText = 0;
+            question_8_data = {
+                "Metric": data.Metric,
+                "score": 0,
+                "suggestion": data.Suggestions,
+                "Reason": data.Reason
+            }
+        }
+        localStorage.setItem("question_8", JSON.stringify(question_8_data));
+    })
+    .catch((error) => {
+        // Code executed when an error occurs in the promise chain
+        console.error('Error:', error);
+    })
+    .finally(() => {
+        q_reason_block_8.style.display = 'block';
+    });
 
 });
 
 const question_9 = document.querySelector('#question_9');
 const result_text_9 = document.querySelector('#result_text_9');
+const q_reason_block_9 = document.querySelector('#q_reason_block_9');
 
 question_9.addEventListener('blur', (event) => {
 
     // Make an API call to our Make cenario
-    fetch('http://54.67.124.18:5000/api/score', {
+    fetch('http://52.8.169.139:5000/api/ask', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-            Metric: "Risk Reduction (RISK)",
-            input: "Does your offer reverse risk with a guarantee? (Yes/No)",
+            Metric: "Risk Reduction(RISK)",
+            Question: "Does your offer reverse risk with a guarantee? (Yes/No)",
             Answer: event.target.value
         })
     })
-        .then(response => response.json()) // Parse response as JSON
-        .then(data => {
-            console.log('response', data);
-            localStorage.removeItem("question_9");
-            let question_9_data;
-            if (data.score !== null) {
-                result_text_9.innerText = data.score;
-                question_9_data = {
-                    "Metric": data.Metric,
-                    "score": parseInt(data.score),
-                    "suggestion": data.suggestion
-                }
-            } else {
-                result_text_9.innerText = 0;
-                question_9_data = {
-                    "Metric": data.Metric,
-                    "score": 0,
-                    "suggestion": data.suggestion
-                }
+    .then(response => response.json()) // Parse response as JSON
+    .then(data => {
+        console.log('response', data);
+        localStorage.removeItem("question_9");
+        let question_9_data;
+        if (data.Score !== null) {
+            result_text_9.innerText = data.Score;
+            q_reason_block_9.innerText = "Reason: " + (data.Reason ? data.Reason : '');
+            question_9_data = {
+                "Metric": data.Metric,
+                "score": parseInt(data.Score),
+                "suggestion": data.Suggestions,
+                "Reason": data.Reason,
             }
-            localStorage.setItem("question_9", JSON.stringify(question_9_data));
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
+        } else {
+            result_text_9.innerText = 0;
+            question_9_data = {
+                "Metric": data.Metric,
+                "score": 0,
+                "suggestion": data.Suggestions,
+                "Reason": data.Reason
+            }
+        }
+        localStorage.setItem("question_9", JSON.stringify(question_9_data));
+    })
+    .catch((error) => {
+        // Code executed when an error occurs in the promise chain
+        console.error('Error:', error);
+    })
+    .finally(() => {
+        q_reason_block_9.style.display = 'block';
+    });
 
 });
 
