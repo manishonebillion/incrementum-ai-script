@@ -23,7 +23,7 @@ question_1.addEventListener('blur', (event) => {
             let question_1_data;
             if (data.Score !== null) {
                 result_text_1.innerText = data.Score;
-                q_reason_block_1.innerText = 'Reason: ' + data.Reason ? data.Reason : '';
+                q_reason_block_1.innerText = "Reason: " + (data.Reason ? data.Reason : '');
                 question_1_data = {
                     "Metric": data.Metric,
                     "score": parseInt(data.Score),
